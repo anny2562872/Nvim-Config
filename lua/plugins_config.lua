@@ -23,6 +23,7 @@ local plugin_specs  = { {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = { "lua_ls", "rust_analyzer" }, -- Auto-install
+		  automatic_installation = true,
         }) end, },
   { "hrsh7th/cmp-nvim-lsp", lazy = true },
   { "hrsh7th/cmp-path", lazy = true },
