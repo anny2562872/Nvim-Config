@@ -17,7 +17,6 @@ vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { silent = true })
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })
 
-
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "c",
     callback = function()
