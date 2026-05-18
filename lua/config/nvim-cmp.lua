@@ -46,6 +46,7 @@ cmp.setup {
   },
   completion = {
     keyword_length = 1,
+    autocomplete = { cmp.TriggerEvent.TextChanged },
     completeopt = "menu,noselect",
   },
   view = {

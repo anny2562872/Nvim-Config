@@ -31,6 +31,10 @@ M.colorscheme_conf = {
     -- onedark_vivid does not enough contrast
     use_theme("onedark_dark")
   end,
+neofusion = function()
+require("neofusion").setup({ transparent_mode = true,})
+require("neofusion").load()
+end,
   github = function()
     use_theme("github_dark_default")
     end

@@ -10,6 +10,9 @@ vim.g.maplocalleader = " "
 vim.g.mapleader = " "
 vim.keymap.set('i','jj','<Esc>',{noremap = true})
 vim.keymap.set('n','<Leader>l',':FzfLua <Enter>',{noremap = true})
+vim.keymap.set('n','<Leader>vo',':vert Oil <Enter>',{noremap = true})
+vim.keymap.set('n','<Leader>o',':Oil <Enter>',{noremap = true})
+vim.keymap.set('n','<Leader>n',':bNext <Enter>',{noremap = true})
 -- Normal mode: Move line down/up
 vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { silent = true })
 vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { silent = true })

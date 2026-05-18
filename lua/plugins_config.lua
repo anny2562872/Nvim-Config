@@ -46,6 +46,17 @@ local plugin_specs  = { {
       require("config.lsp")
     end,
   },
+  {
+  'stevearc/oil.nvim',
+  ---@module 'oil'
+  ---@type oil.SetupOpts
+  opts = {},
+  -- Optional dependencies
+  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  lazy = false,
+},
 {
     "dnlhc/glance.nvim",
     config = function()
@@ -96,7 +107,8 @@ local plugin_specs  = { {
     "mg979/vim-visual-multi"
   },
 
-    { "olimorris/onedarkpro.nvim"  }, 
+  { "diegoulloao/neofusion.nvim",},
+    { "olimorris/onedarkpro.nvim"  },
     { "sainnhe/gruvbox-material" },
   }} -- plugin list
 
