@@ -46,15 +46,17 @@ local plugin_specs  = { {
       require("config.lsp")
     end,
   },
+{
+    "rcarriga/nvim-notify",
+    event = "VeryLazy"
+},
   {
   'stevearc/oil.nvim',
   ---@module 'oil'
   ---@type oil.SetupOpts
-  opts = {},
-  -- Optional dependencies
+  opts={},
+
   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
 },
 {
@@ -64,6 +66,12 @@ local plugin_specs  = { {
     end,
     event = "VeryLazy",
   },
+	{ "Izzymaroc1690/tiny-cmdline.nvim", 
+	config = function()
+	require("config.tiny-cmdline")
+	end,
+
+	 },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -82,6 +90,11 @@ local plugin_specs  = { {
       require("config.snacks")
     end,
   },
+  {
+  "alex-popov-tech/store.nvim",
+  dependencies = { { "OXY2DEV/markview.nvim", opts = {} }, }, },
+  cmd = "Store",
+},
     {
     "ibhagwan/fzf-lua",
     config = function()
@@ -110,7 +123,7 @@ local plugin_specs  = { {
   { "diegoulloao/neofusion.nvim",},
     { "olimorris/onedarkpro.nvim"  },
     { "sainnhe/gruvbox-material" },
-  }} -- plugin list
+  } -- plugin list
 
 -- Setup lazy.nvim
 require("lazy").setup {
