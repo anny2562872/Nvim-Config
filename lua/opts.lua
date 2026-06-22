@@ -19,7 +19,6 @@ vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { silent = true })
 -- Visual mode: Move selection down/up
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })
-
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "c",
     callback = function()
@@ -40,5 +39,9 @@ vim.api.nvim_create_autocmd("FileType", {
             desc = "Run C Code"
         })
     end,
+})
+vim.api.nvim_create_autocmd("BufWritePost", {
+    pattern = "kitty.conf",
+    command = "silent !kill -SIGUSR1 $(pgrep kitty)",
 })
 

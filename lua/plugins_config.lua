@@ -22,7 +22,7 @@ local plugin_specs  = { {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls", "rust_analyzer" }, -- Auto-install
+            ensure_installed = { "lua_ls", "rust_analyzer", "clangd" }, -- Auto-install
 		  automatic_installation = true,
         }) end, },
   { "hrsh7th/cmp-nvim-lsp", lazy = true },
@@ -32,6 +32,7 @@ local plugin_specs  = { {
   { "hrsh7th/cmp-cmdline", lazy = true },
   { "quangnguyen30192/cmp-nvim-ultisnips", lazy = true },
   { "SirVer/ultisnips", lazy = true },
+  { "j-hui/fidget.nvim", lazy = true },
   {
     "hrsh7th/nvim-cmp",
     name = "nvim-cmp",
@@ -66,12 +67,19 @@ local plugin_specs  = { {
     end,
     event = "VeryLazy",
   },
-	{ "Izzymaroc1690/tiny-cmdline.nvim", 
-	config = function()
-	require("config.tiny-cmdline")
-	end,
-
-	 },
+ {
+  "folke/flash.nvim",
+  event = "VeryLazy",
+  ---@type Flash.Config
+  opts = {},
+  keys = {
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  },
+},
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
